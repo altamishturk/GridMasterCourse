@@ -1,0 +1,215 @@
+body {
+  font-size: 15px;
+  background: rgb(1, 223, 254);
+  background: linear-gradient(
+    90deg,
+    rgba(1, 223, 254, 1) 0%,
+    rgba(236, 226, 25, 1) 100%
+  );
+}
+
+button {
+  background: #ffc600;
+  border: 0;
+  padding: 10px 20px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.wrapper {
+  display: grid;
+  gap: 20px;
+  width: 80%;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+[aria-controls="menu-list"] {
+  display: none;
+}
+
+.close {
+  display: none;
+}
+.close.show {
+  display: inline-block;
+}
+.top {
+  display: grid;
+  gap: 20px;
+  min-height: 300px;
+  grid-template-areas:
+    "hero hero cta1"
+    "hero hero cta2";
+}
+
+.top .hero {
+  grid-column: hero;
+  grid-row: hero;
+  background-image: url("./images/taco.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  padding: 50px;
+}
+
+.top .hero > * {
+  background-color: #ffc600;
+}
+
+.top .hero h1 {
+  align-self: flex-end;
+  justify-self: flex-start;
+}
+.top .hero p {
+  align-self: flex-start;
+  justify-self: flex-start;
+}
+
+.top .cta1,
+.top .cta2 {
+  padding: 10px;
+  background-color: #ffc600;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+}
+
+.top .cta1 {
+  grid-column: cta1;
+}
+.top .cta2 {
+  grid-column: cta2;
+}
+
+.top .cta1 p,
+.top .cta2 p {
+  margin: 0;
+}
+
+.top .cta1 p:first-child,
+.top .cta2 p:first-child {
+  align-self: flex-end;
+  font-size: 60px;
+}
+
+#menu-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+#menu-list.active {
+  display: grid;
+}
+
+#menu-list li {
+  background-color: #ffc600;
+  display: inline-block;
+  text-align: center;
+  padding: 5px;
+}
+
+#menu-list a {
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.features .feature {
+  background-color: rgba(0, 0, 0, 0.24);
+  padding: 20px;
+  display: grid;
+  justify-items: center;
+}
+
+.features .feature > * {
+  text-align: center;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  align-items: center;
+}
+
+.gallery {
+  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-items: center;
+}
+
+.gallery h2 {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.gallery h2::before,
+.gallery h2::after {
+  content: "";
+  display: block;
+  height: 10px;
+}
+
+.gallery h2::before {
+  background: rgb(255, 198, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 198, 0, 0) 0%,
+    rgba(255, 198, 0, 1) 100%
+  );
+}
+.gallery h2::after {
+  background: rgb(255, 198, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 198, 0, 1) 0%,
+    rgba(236, 226, 25, 0) 100%
+  );
+}
+
+@media (max-width: 800px) {
+  .menu {
+    grid-row: 1 /1;
+  }
+
+  [aria-controls="menu-list"] {
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  #menu-list {
+    display: none;
+  }
+  .top {
+    grid-template-areas:
+      "hero hero "
+      "hero hero "
+      "cta1 cta2 ";
+  }
+  .about {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .wrapper {
+    width: 97%;
+  }
+}
